@@ -22,4 +22,13 @@
     <string name="cm">cm</string>
     <string name="kg">kg</string>
     <string name="register">Register</string>
+    <string name="profile">Profile</string>
+    <string name="user_photo">User Photo</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="age">Age</string>
+    <string name="user_age">25 years old</string>
+    <string name="user_weight">55 kg</string>
+    <string name="user_height">165 cm</string>
+    <string name="user_name">User Name</string>
+    <string name="myemail_gmail_com">myemail@gmail.com</string>
 </resources>

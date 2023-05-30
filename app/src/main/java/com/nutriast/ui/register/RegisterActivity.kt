@@ -1,10 +1,9 @@
 package com.nutriast.ui.register
 
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.nutriast.R
+import androidx.appcompat.app.AppCompatActivity
 import com.nutriast.databinding.ActivityRegisterBinding
 import java.util.*
 
@@ -13,6 +12,7 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
