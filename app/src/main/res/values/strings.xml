@@ -31,4 +31,5 @@
     <string name="user_height">165 cm</string>
     <string name="user_name">User Name</string>
     <string name="myemail_gmail_com">myemail@gmail.com</string>
+    <string name="logout">Logout</string>
 </resources>
