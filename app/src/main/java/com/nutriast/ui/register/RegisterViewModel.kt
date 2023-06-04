@@ -51,12 +51,13 @@ class RegisterViewModel : ViewModel() {
                     Log.e(TAG, "onFailure: ${response.message()}")
                     _apiResponse.value = response.message()
                 }
+                _isLoading.value = false
             }
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message}")
+                _isLoading.value = false
             }
         })
-        _isLoading.value = false
     }
 
     companion object {

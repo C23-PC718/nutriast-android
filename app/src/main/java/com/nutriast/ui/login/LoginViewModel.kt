@@ -61,12 +61,13 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
                     Log.e(TAG, "onFailure: ${response.message()}")
                     _apiResponse.value = response.message()
                 }
+                _isLoading.value = false
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message}")
+                _isLoading.value = false
             }
         })
-        _isLoading.value = false
     }
 
     companion object {
