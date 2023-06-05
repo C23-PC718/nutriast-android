@@ -23,7 +23,15 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
     private val _apiResponse = MutableLiveData<String>()
     val apiResponse: LiveData<String> = _apiResponse
 
+    private val _authToken = MutableLiveData<String>()
+    val authToken: LiveData<String> = _authToken
+
+    private val _userId = MutableLiveData<String>()
+    val userId: LiveData<String> = _userId
+
     fun saveLoginInfo(userId: String, token: String) {
+        _authToken.value = token
+        _userId.value = userId
         viewModelScope.launch {
             pref.saveLoginInfo(userId, token)
         }
@@ -33,6 +41,8 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
         _isLoading.value = true
         _loginSuccessful.value = false
         _apiResponse.value = ""
+        _authToken.value = ""
+        _userId.value = ""
         val client = ApiConfig.getApiService().login(email, password)
         client.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(

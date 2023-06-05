@@ -6,6 +6,7 @@ import com.nutriast.data.local.UserPreference
 import com.nutriast.ui.login.LoginViewModel
 import com.nutriast.ui.profile.ProfileViewModel
 import com.nutriast.ui.register.RegisterViewModel
+import com.nutriast.ui.splashscreen.SplashScreenViewModel
 
 class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
@@ -19,6 +20,9 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(SplashScreenViewModel::class.java) -> {
+                SplashScreenViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

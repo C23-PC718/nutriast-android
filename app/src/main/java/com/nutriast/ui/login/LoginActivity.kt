@@ -21,6 +21,8 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var mAuthToken: String
+    private lateinit var mUserId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,10 +56,20 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        loginViewModel.authToken.observe(this) { authToken ->
+            mAuthToken = authToken
+        }
+
+        loginViewModel.userId.observe(this) { userId ->
+            mUserId = userId
+        }
+
         loginViewModel.loginSuccessful.observe(this) { loginSuccessful ->
             if (loginSuccessful) {
                 val i = Intent(this, MainActivity::class.java)
                 i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                i.putExtra(MainActivity.EXTRA_AUTH_TOKEN, mAuthToken)
+                i.putExtra(MainActivity.EXTRA_USER_ID, mUserId)
                 startActivity(i)
                 finish()
             }

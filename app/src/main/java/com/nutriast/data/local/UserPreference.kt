@@ -12,8 +12,8 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     fun getUser(): Flow<LoginData> {
         return dataStore.data.map { preferences ->
             LoginData(
-                preferences[USER_ID_KEY] ?:"",
-                preferences[TOKEN_KEY] ?: ""
+                preferences[TOKEN_KEY] ?: "",
+                preferences[USER_ID_KEY] ?:""
             )
         }
     }
