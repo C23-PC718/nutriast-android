@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civUserPhoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar_placeholder"
+        android:contentDescription="@string/user_photo"
+        app:civ_border_color="@color/navy_blue"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        style="@style/Heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/user_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/civUserPhoto"
+        tools:text="User Name"/>
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        style="@style/Normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/myemail_gmail_com"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+        tools:text="myemail@gmail.com"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPersonalInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserEmail">
+        
+        <LinearLayout
+            android:id="@+id/linLayoutPersonalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPersonalInfo"
+                style="@style/Heading1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal_information"
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/linLayoutGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/gender"
+                    android:layout_weight="0.5" />
+
+                <TextView
+                    android:id="@+id/tvUserGender"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/male"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linLayoutAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/age"
+                    android:layout_weight="0.5" />
+
+                <TextView
+                    android:id="@+id/tvUserAge"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/user_age"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linLayoutWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tvWeight"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/weight"
+                    android:layout_weight="0.5" />
+
+                <TextView
+                    android:id="@+id/tvUserWeight"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/user_weight"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linLayoutHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tvHeight"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/height"
+                    android:layout_weight="0.5" />
+
+                <TextView
+                    android:id="@+id/tvUserHeight"
+                    style="@style/Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/user_height"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/dark_gray"
+        android:text="@string/logout"
+        android:textStyle="bold"
+        android:fontFamily="@font/urbanist_variablefont_wght"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvPersonalInformation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
