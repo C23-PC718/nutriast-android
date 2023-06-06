@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/user_name"
+        android:text="@string/triple_dots"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/civUserPhoto"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/myemail_gmail_com"
+        android:text="@string/triple_dots"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUserName"
@@ -100,7 +100,7 @@
                     style="@style/Normal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/male"
+                    android:text="@string/triple_dots"
                     android:textStyle="bold"
                     android:textAlignment="textEnd"
                     android:layout_weight="0.5"/>
@@ -127,7 +127,7 @@
                     style="@style/Normal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/user_age"
+                    android:text="@string/triple_dots"
                     android:textStyle="bold"
                     android:textAlignment="textEnd"
                     android:layout_weight="0.5"/>
@@ -154,7 +154,7 @@
                     style="@style/Normal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/user_weight"
+                    android:text="@string/triple_dots"
                     android:textStyle="bold"
                     android:textAlignment="textEnd"
                     android:layout_weight="0.5"/>
@@ -180,7 +180,7 @@
                     style="@style/Normal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/user_height"
+                    android:text="@string/triple_dots"
                     android:textStyle="bold"
                     android:textAlignment="textEnd"
                     android:layout_weight="0.5"/>
@@ -202,5 +202,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvPersonalInformation" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,15 +18,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        authToken = intent.getStringExtra(EXTRA_AUTH_TOKEN).toString()
-        userId = intent.getStringExtra(EXTRA_USER_ID).toString()
-        val loggedInUser = listOf(authToken, userId)
-        Log.d(TAG, "onCreate loggedInUser: $loggedInUser")
+        getLoggedInUser()
 
         binding.profileButton.setOnClickListener {
             val i = Intent(this, ProfileActivity::class.java)
+            i.putExtra(ProfileActivity.EXTRA_AUTH_TOKEN, authToken)
+            i.putExtra(ProfileActivity.EXTRA_USER_ID, userId)
             startActivity(i)
         }
+    }
+
+    private fun getLoggedInUser() {
+        authToken = intent.getStringExtra(EXTRA_AUTH_TOKEN).toString()
+        userId = intent.getStringExtra(EXTRA_USER_ID).toString()
+        val loggedInUser = listOf(authToken, userId)
+        Log.d(TAG, "getLoggedInUser: $loggedInUser")
     }
 
     companion object {
