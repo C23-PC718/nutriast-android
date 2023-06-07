@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.nutriast.data.local.UserPreference
 import com.nutriast.ui.login.LoginViewModel
 import com.nutriast.ui.main.profile.ProfileViewModel
-//import com.nutriast.ui.profile.ProfileViewModel
 import com.nutriast.ui.register.RegisterViewModel
 import com.nutriast.ui.splashscreen.SplashScreenViewModel
 

@@ -1,6 +1,5 @@
 package com.nutriast.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +9,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.nutriast.R
 import com.nutriast.databinding.ActivityMainBinding
-//import com.nutriast.ui.profile.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,13 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         getLoggedInUser()
         setupBottomNavigationBar()
-
-//        binding.profileButton.setOnClickListener {
-//            val i = Intent(this, ProfileActivity::class.java)
-//            i.putExtra(ProfileActivity.EXTRA_AUTH_TOKEN, authToken)
-//            i.putExtra(ProfileActivity.EXTRA_USER_ID, userId)
-//            startActivity(i)
-//        }
     }
 
     private fun getLoggedInUser() {
