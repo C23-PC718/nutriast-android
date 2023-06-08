@@ -30,7 +30,7 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
         }
     }
 
-    fun getUserByUserId(authToken: String, userId: String) {
+    fun getUserPersonalInformation(authToken: String, userId: String) {
         _isLoading.value = true
         _apiResponse.value = ""
         val client = ApiConfig.getApiService().getUserByUserId("Bearer $authToken", userId)

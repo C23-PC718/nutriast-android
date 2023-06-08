@@ -39,8 +39,8 @@
     <string name="predict_cardiovascular_risk">Predict Cardiovascular Risk</string>
     <string name="daily_nutrition_needs">Daily Nutrition Needs</string>
     <string name="fat_need">Fat Need</string>
-    <string name="calory_need">Calory Need</string>
+    <string name="calorie_need">Calorie Need</string>
     <string name="fiber_need">Fiber Need</string>
-    <string name="carbohidrate_need">Carbohidrate Need</string>
+    <string name="carbohydrate_need">Carbohydrate Need</string>
     <string name="protein_need">Protein Need</string>
 </resources>

@@ -71,9 +71,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        if (userId.isNotEmpty()) {
-            profileViewModel.getUserByUserId(authToken, userId)
-        }
+        profileViewModel.getUserPersonalInformation(authToken, userId)
 
         profileViewModel.userData.observe(viewLifecycleOwner) { userData ->
             if (userData != null) {

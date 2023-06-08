@@ -14,9 +14,15 @@
         android:theme="@style/Theme.Nutriast"
         tools:targetApi="31">
         <activity
+            android:name=".ui.cardiovascularprediction.CardiovascularPredictionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.dailyintake.DailyIntakeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
-            android:theme="@style/SplashScreenTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,8 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

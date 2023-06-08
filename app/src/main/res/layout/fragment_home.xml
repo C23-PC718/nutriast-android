@@ -257,7 +257,7 @@
                         style="@style/Normal"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/calory_need"
+                        android:text="@string/calorie_need"
                         android:layout_weight="0.5" />
 
                     <TextView
@@ -311,7 +311,7 @@
                         style="@style/Normal"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/carbohidrate_need"
+                        android:text="@string/carbohydrate_need"
                         android:layout_weight="0.5" />
 
                     <TextView
