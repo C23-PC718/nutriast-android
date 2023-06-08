@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.nutriast.R
 import com.nutriast.databinding.ActivityMainBinding
+import com.nutriast.ui.main.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -42,6 +43,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNav.setupWithNavController(navController)
+
+        bottomNav.setOnItemSelectedListener { item ->
+            val profileFragment = ProfileFragment.newInstance(authToken, userId)
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.navigation_intake_history -> {
+                    navController.navigate(R.id.navigation_intake_history)
+                    true
+                }
+                R.id.navigation_profile -> {
+                    navController.navigate(R.id.navigation_profile, profileFragment.arguments)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     companion object {
