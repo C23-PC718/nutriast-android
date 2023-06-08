@@ -43,4 +43,21 @@
     <string name="fiber_need">Fiber Need</string>
     <string name="carbohydrate_need">Carbohydrate Need</string>
     <string name="protein_need">Protein Need</string>
+    <string name="cardiovascular_prediction">Cardiovascular Prediction</string>
+    <string name="cardiovascular_prediction_info_1">Up to 73% Accuration using Machine Learning, with 70.000 record data!</string>
+    <string name="cardiovascular_prediction_info_2">Cardiovascular disease impacts the heart and blood vessels, and includes conditions like heart disease, heart failure, and stroke.</string>
+    <string name="cholesterol">Cholesterol</string>
+    <string name="predict">Predict</string>
+    <string name="ap_lo">Ap-Lo</string>
+    <string name="ap_hi">Ap-Hi</string>
+    <string name="glucose">Glucose</string>
+    <string name="normal">Normal</string>
+    <string name="above_normal">Above Normal</string>
+    <string name="well_above_normal">Well Above Normal</string>
+    <string name="cancel">Cancel</string>
+    <string name="smoke">Smoke</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="active">Active</string>
 </resources>

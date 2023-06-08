@@ -2,6 +2,7 @@ package com.nutriast.data.remote.api
 
 import com.nutriast.data.remote.pojo.GetUserByUserIdResponse
 import com.nutriast.data.remote.pojo.LoginResponse
+import com.nutriast.data.remote.pojo.PredictCardiovascularResponse
 import com.nutriast.data.remote.pojo.RegisterResponse
 import retrofit2.Call
 import retrofit2.http.Field
@@ -37,4 +38,18 @@ interface ApiService {
         @Header("Authorization") authToken: String,
         @Path("userId") userId: String
     ): Call<GetUserByUserIdResponse>
+
+    @FormUrlEncoded
+    @POST("predict/{userId}")
+    fun predictCardiovascularRisk(
+        @Header("Authorization") authToken: String,
+        @Path("userId") userId: String,
+        @Field("ap_hi") apHi: Int,
+        @Field("ap_lo") apLo: Int,
+        @Field("cholesterol") cholesterol: Int,
+        @Field("gluc") glucose: Int,
+        @Field("smoke") smoke: Int,
+        @Field("alco") alcohol: Int,
+        @Field("active") active: Int
+    ): Call<PredictCardiovascularResponse>
 }

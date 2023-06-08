@@ -12,4 +12,5 @@
     <color name="navy_blue">#000080</color>
     <color name="green_nutriast">#49BC86</color>
     <color name="dark_green_nutriast">#1B8553</color>
+    <color name="light_gray">#DADADA</color>
 </resources>
