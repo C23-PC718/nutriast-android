@@ -194,17 +194,6 @@
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/tvCm"-->
-<!--            style="@style/Normal"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="12dp"-->
-<!--            android:text="@string/cm"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/etHeightLayout"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/etHeightLayout"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/etHeightLayout" />-->
-
         <TextView
             android:id="@+id/tvSmoke"
             style="@style/Normal"
