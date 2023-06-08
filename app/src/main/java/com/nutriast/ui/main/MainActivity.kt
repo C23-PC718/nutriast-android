@@ -9,6 +9,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.nutriast.R
 import com.nutriast.databinding.ActivityMainBinding
+import com.nutriast.ui.main.home.HomeFragment
+import com.nutriast.ui.main.intakehistory.IntakeHistoryFragment
 import com.nutriast.ui.main.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
@@ -26,11 +28,12 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigationBar()
     }
 
-    private fun getLoggedInUser() {
+    fun getLoggedInUser(): List<String> {
         authToken = intent.getStringExtra(EXTRA_AUTH_TOKEN).toString()
         userId = intent.getStringExtra(EXTRA_USER_ID).toString()
         val loggedInUser = listOf(authToken, userId)
         Log.d(TAG, "getLoggedInUser: $loggedInUser")
+        return loggedInUser
     }
 
     private fun setupBottomNavigationBar() {
@@ -43,25 +46,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNav.setupWithNavController(navController)
-
-        bottomNav.setOnItemSelectedListener { item ->
-            val profileFragment = ProfileFragment.newInstance(authToken, userId)
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    navController.navigate(R.id.navigation_home)
-                    true
-                }
-                R.id.navigation_intake_history -> {
-                    navController.navigate(R.id.navigation_intake_history)
-                    true
-                }
-                R.id.navigation_profile -> {
-                    navController.navigate(R.id.navigation_profile, profileFragment.arguments)
-                    true
-                }
-                else -> false
-            }
-        }
     }
 
     companion object {

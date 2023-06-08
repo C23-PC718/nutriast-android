@@ -1,13 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.home.HomeFragment">
+    tools:context=".ui.main.home.HomeFragment" >
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="64dp" >
 
-</FrameLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civUserPhoto"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar_placeholder"
+            android:contentDescription="@string/user_photo"
+            app:civ_border_color="@color/navy_blue"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHello"
+            style="@style/Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/hello"
+            app:layout_constraintStart_toEndOf="@+id/civUserPhoto"
+            app:layout_constraintTop_toTopOf="@+id/civUserPhoto" />
+
+        <TextView
+            android:id="@+id/tvUserName"
+            style="@style/Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/triple_dots"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/civUserPhoto"
+            app:layout_constraintStart_toEndOf="@+id/civUserPhoto"
+            tools:text="User Name" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvTodayHealthStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName">
+
+            <LinearLayout
+                android:id="@+id/linLayoutTodayHealthStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTodayHealthStatus"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/today_health_status"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvUserHealthStatus"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_health_status"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvFeedback"
+            style="@style/Normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="@string/feedback_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvTodayHealthStatus" />
+
+        <Button
+            android:id="@+id/intakeFormButton"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/dark_gray"
+            android:text="@string/checkout_today"
+            android:textStyle="bold"
+            android:fontFamily="@font/urbanist_variablefont_wght"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFeedback" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCardiovascularRisk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/intakeFormButton">
+
+            <LinearLayout
+                android:id="@+id/linLayoutCardiovascularRisk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCardiovascularRisk"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardiovascular_risk"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvUserCardiovascularRisk"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_cardiovascular_risk"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/predictCardiovascularRiskButton"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/dark_gray"
+            android:text="@string/predict_cardiovascular_risk"
+            android:textStyle="bold"
+            android:fontFamily="@font/urbanist_variablefont_wght"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvCardiovascularRisk" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvDailyNutritionNeeds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/predictCardiovascularRiskButton">
+
+            <LinearLayout
+                android:id="@+id/linLayoutDailyNutritionNeeds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDailyNutritionNeeds"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_nutrition_needs"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/linLayoutFatNeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvFatNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/fat_need"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserFatNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutCaloryNeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvCaloryNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/calory_need"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserCaloryNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutFiberNeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvFiberNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/fiber_need"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserFiberNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutCarbohidrateNeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvCarbohidrateNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/carbohidrate_need"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserCarbohidrateNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutProteinNeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvProteinNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/protein_need"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserProteinNeed"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

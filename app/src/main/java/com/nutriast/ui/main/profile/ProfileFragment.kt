@@ -19,6 +19,7 @@ import com.nutriast.data.remote.pojo.UserData
 import com.nutriast.databinding.FragmentProfileBinding
 import com.nutriast.helper.ViewModelFactory
 import com.nutriast.ui.login.LoginActivity
+import com.nutriast.ui.main.MainActivity
 
 class ProfileFragment : Fragment() {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -45,11 +46,10 @@ class ProfileFragment : Fragment() {
     }
 
     private fun getLoggedInUser() {
-        arguments?.let {
-            authToken = it.getString(EXTRA_AUTH_TOKEN, "")
-            userId = it.getString(EXTRA_USER_ID, "")
-        }
-        val loggedInUser = listOf(authToken, userId)
+        val mainActivity = requireActivity() as MainActivity
+        val loggedInUser = mainActivity.getLoggedInUser()
+        authToken = loggedInUser[0]
+        userId = loggedInUser[1]
         Log.d(TAG, "getLoggedInUser: $loggedInUser")
     }
 
@@ -111,15 +111,6 @@ class ProfileFragment : Fragment() {
     }
 
     companion object {
-        private const val EXTRA_AUTH_TOKEN = "extra_auth_token"
-        private const val EXTRA_USER_ID = "extra_user_id"
         private val TAG = ProfileFragment::class.java.simpleName
-
-        fun newInstance(authToken: String, userId: String) = ProfileFragment().apply {
-            arguments = Bundle().apply {
-                putString(EXTRA_AUTH_TOKEN, authToken)
-                putString(EXTRA_USER_ID, userId)
-            }
-        }
     }
 }
