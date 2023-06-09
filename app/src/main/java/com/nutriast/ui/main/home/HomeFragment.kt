@@ -2,10 +2,8 @@ package com.nutriast.ui.main.home
 
 import android.content.Context
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +11,8 @@ import android.widget.Toast
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.nutriast.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.nutriast.data.local.UserPreference
 import com.nutriast.data.remote.pojo.UserData
 import com.nutriast.databinding.FragmentHomeBinding
@@ -21,10 +20,6 @@ import com.nutriast.helper.ViewModelFactory
 import com.nutriast.ui.cardiovascularprediction.CardiovascularPredictionActivity
 import com.nutriast.ui.dailyintake.DailyIntakeActivity
 import com.nutriast.ui.main.MainActivity
-import com.nutriast.ui.main.MainActivity.Companion.EXTRA_AUTH_TOKEN
-import com.nutriast.ui.main.MainActivity.Companion.EXTRA_USER_ID
-import com.nutriast.ui.main.profile.ProfileFragment
-import com.nutriast.ui.main.profile.ProfileViewModel
 
 class HomeFragment : Fragment() {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

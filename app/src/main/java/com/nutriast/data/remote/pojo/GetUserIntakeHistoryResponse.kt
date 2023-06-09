@@ -1,6 +1,8 @@
 package com.nutriast.data.remote.pojo
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class GetUserIntakeHistoryResponse(
 
@@ -17,6 +19,7 @@ data class GetUserIntakeHistoryResponse(
 	val status: String? = null
 )
 
+@Parcelize
 data class IntakeData(
 
 	@field:SerializedName("id")
@@ -51,4 +54,4 @@ data class IntakeData(
 
 	@field:SerializedName("updatedAt")
 	val updatedAt: String? = null
-)
+) : Parcelable

@@ -1,6 +1,7 @@
 package com.nutriast.ui.main.intakehistory
 
 import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -18,12 +19,14 @@ import com.nutriast.data.local.UserPreference
 import com.nutriast.data.remote.pojo.IntakeData
 import com.nutriast.databinding.FragmentIntakeHistoryBinding
 import com.nutriast.helper.ViewModelFactory
+import com.nutriast.ui.intakehistorydetail.IntakeHistoryDetailActivity
 import com.nutriast.ui.main.MainActivity
 
 class IntakeHistoryFragment : Fragment() {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
     private lateinit var intakeHistoryViewModel: IntakeHistoryViewModel
     private lateinit var binding: FragmentIntakeHistoryBinding
+    private lateinit var adapter: IntakeHistoryAdapter
     private lateinit var authToken: String
     private lateinit var userId: String
     private lateinit var mlistUserIntake: ArrayList<IntakeData>
@@ -36,11 +39,11 @@ class IntakeHistoryFragment : Fragment() {
         return binding.root
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         getLoggedInUser()
         setupViewModel()
-        setupAction()
         observeViewModel()
     }
 
@@ -57,10 +60,6 @@ class IntakeHistoryFragment : Fragment() {
             this,
             ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
         )[IntakeHistoryViewModel::class.java]
-    }
-
-    private fun setupAction() {
-        // TODO
     }
 
     private fun observeViewModel() {
@@ -94,12 +93,23 @@ class IntakeHistoryFragment : Fragment() {
     private fun setRecyclerView() {
         val layoutManager = LinearLayoutManager(requireActivity())
         val itemDecoration = DividerItemDecoration(requireActivity(), layoutManager.orientation)
-        val adapter = IntakeHistoryAdapter(mlistUserIntake)
+        adapter = IntakeHistoryAdapter(mlistUserIntake)
+        adapter.setOnItemClickCallback(object: IntakeHistoryAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: IntakeData) {
+                showIntakeHistoryDetail(data)
+            }
+        })
         binding.apply {
             rvDailyIntakeHistory.layoutManager = layoutManager
             rvDailyIntakeHistory.addItemDecoration(itemDecoration)
             rvDailyIntakeHistory.adapter = adapter
         }
+    }
+
+    private fun showIntakeHistoryDetail(intakeData: IntakeData) {
+        val i = Intent(requireActivity(), IntakeHistoryDetailActivity::class.java)
+        i.putExtra(IntakeHistoryDetailActivity.EXTRA_INTAKE_DATA, intakeData)
+        startActivity(i)
     }
 
     private fun makeToast(text: String) {
