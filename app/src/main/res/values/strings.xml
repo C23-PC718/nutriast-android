@@ -60,4 +60,7 @@
     <string name="no">No</string>
     <string name="alcohol">Alcohol</string>
     <string name="active">Active</string>
+    <string name="daily_intake_title">How was your food today?</string>
+    <string name="date_format">DD/MM/YYYY</string>
+    <string name="daily_intake_history">Daily Intake History</string>
 </resources>
