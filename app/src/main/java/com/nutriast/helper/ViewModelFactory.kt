@@ -3,6 +3,8 @@ package com.nutriast.helper
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nutriast.data.local.UserPreference
+import com.nutriast.ui.cardiovascularprediction.CardiovascularPredictionViewModel
+import com.nutriast.ui.dailyintake.DailyIntakeViewModel
 import com.nutriast.ui.login.LoginViewModel
 import com.nutriast.ui.main.home.HomeViewModel
 import com.nutriast.ui.main.intakehistory.IntakeHistoryViewModel
@@ -28,6 +30,12 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             }
             modelClass.isAssignableFrom(IntakeHistoryViewModel::class.java) -> {
                 IntakeHistoryViewModel() as T
+            }
+            modelClass.isAssignableFrom(CardiovascularPredictionViewModel::class.java) -> {
+                CardiovascularPredictionViewModel() as T
+            }
+            modelClass.isAssignableFrom(DailyIntakeViewModel::class.java) -> {
+                DailyIntakeViewModel() as T
             }
             modelClass.isAssignableFrom(SplashScreenViewModel::class.java) -> {
                 SplashScreenViewModel(pref) as T

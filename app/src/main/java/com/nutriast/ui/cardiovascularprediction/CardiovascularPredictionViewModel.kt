@@ -28,7 +28,8 @@ class CardiovascularPredictionViewModel : ViewModel() {
         _predictSuccessful.value = false
         _apiResponse.value = ""
         val client = ApiConfig.getApiService().predictCardiovascularRisk(
-            authToken, userId, apHi, apLo, cholesterol, glucose, smoke, alcohol, active
+            "Bearer $authToken", userId, apHi, apLo,
+            cholesterol, glucose, smoke, alcohol, active
         )
         client.enqueue(object : Callback<PredictCardiovascularResponse> {
             override fun onResponse(

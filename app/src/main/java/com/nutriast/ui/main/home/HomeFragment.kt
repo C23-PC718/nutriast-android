@@ -68,11 +68,15 @@ class HomeFragment : Fragment() {
     private fun setupAction() {
         binding.intakeFormButton.setOnClickListener {
             val i = Intent(requireActivity(), DailyIntakeActivity::class.java)
+            i.putExtra(CardiovascularPredictionActivity.EXTRA_AUTH_TOKEN, authToken)
+            i.putExtra(CardiovascularPredictionActivity.EXTRA_USER_ID, userId)
             startActivity(i)
         }
 
         binding.predictCardiovascularRiskButton.setOnClickListener {
             val i = Intent(requireActivity(), CardiovascularPredictionActivity::class.java)
+            i.putExtra(CardiovascularPredictionActivity.EXTRA_AUTH_TOKEN, authToken)
+            i.putExtra(CardiovascularPredictionActivity.EXTRA_USER_ID, userId)
             startActivity(i)
         }
     }
