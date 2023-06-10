@@ -48,8 +48,9 @@ class IntakeHistoryAdapter(
             val month = parts[1]
             val day = parts[2]
             return "$day/$month/$year"
+        } else {
+            return "Date is missing"
         }
-        return "Date is missing"
     }
 
     override fun getItemCount(): Int = listUserIntake.size

@@ -15,7 +15,6 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
-    // TODO: add list of API needed
     @FormUrlEncoded
     @POST("login")
     fun login(

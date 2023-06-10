@@ -63,4 +63,12 @@
     <string name="daily_intake_title">How was your food today?</string>
     <string name="date_format">DD/MM/YYYY</string>
     <string name="daily_intake_history">Daily Intake History</string>
+    <string name="intake_history_detail">Intake History Detail</string>
+    <string name="health_status">Health Status</string>
+    <string name="nutrition_intake_detail">Nutrition Intake Detail</string>
+    <string name="fat">Fat</string>
+    <string name="calorie">Calorie</string>
+    <string name="fiber">Fiber</string>
+    <string name="carbohydrate">Carbohydrate</string>
+    <string name="protein">Protein</string>
 </resources>

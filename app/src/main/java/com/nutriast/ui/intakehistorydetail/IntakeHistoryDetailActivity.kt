@@ -2,10 +2,11 @@ package com.nutriast.ui.intakehistorydetail
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.nutriast.data.remote.pojo.IntakeData
 import com.nutriast.databinding.ActivityIntakeHistoryDetailBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class IntakeHistoryDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIntakeHistoryDetailBinding
@@ -18,6 +19,7 @@ class IntakeHistoryDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getIntakeData()
+        setupIntakeHistoryDetailPage()
     }
 
     private fun getIntakeData() {
@@ -30,6 +32,35 @@ class IntakeHistoryDetailActivity : AppCompatActivity() {
 
         if (intakeData != null) {
             mIntakeData = intakeData
+        }
+    }
+
+    private fun setupIntakeHistoryDetailPage() {
+        binding.apply {
+            tvIntakeDate.text = changeDateFormat(mIntakeData.createdAt)
+            tvUserIntakeHealthStatus.text = mIntakeData.healthstatus
+            tvIntakeFeedback.text = mIntakeData.feedback
+            tvUserFatIntake.text = mIntakeData.fatintake.toString()
+            tvUserCaloryIntake.text = mIntakeData.caloryintake.toString()
+            tvUserFiberIntake.text = mIntakeData.fiberintake.toString()
+            tvUserCarbohidrateIntake.text = mIntakeData.carbohidrateintake.toString()
+            tvUserProteinIntake.text = mIntakeData.proteinintake.toString()
+        }
+    }
+
+    private fun changeDateFormat(createdAt: String?): String {
+        if (createdAt != null) {
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+            val date = inputFormat.parse(createdAt)
+            val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val formattedDate = outputFormat.format(date!!)
+            val parts = formattedDate.split("-")
+            val year = parts[0]
+            val month = parts[1]
+            val day = parts[2]
+            return "$day/$month/$year"
+        } else {
+            return "Date is missing"
         }
     }
 
