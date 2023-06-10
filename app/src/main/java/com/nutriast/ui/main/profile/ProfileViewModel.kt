@@ -56,8 +56,9 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
                             Log.d(TAG, "onResponse: ${responseBody.message}")
                         } else {
                             Log.e(TAG, "onResponse: ${responseBody.message}")
+                            _apiResponse.value = responseBody.message as String
                         }
-                        _apiResponse.value = responseBody.message as String
+//                        _apiResponse.value = responseBody.message as String
                     }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
