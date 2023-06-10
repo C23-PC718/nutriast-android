@@ -78,10 +78,19 @@ class HomeFragment : Fragment() {
 
     private fun observeViewModel() {
         homeViewModel.getUserData(authToken, userId)
+        homeViewModel.getTodayIntakeInformation(authToken, userId)
 
         homeViewModel.userData.observe(viewLifecycleOwner) { userData ->
             if (userData != null) {
                 setupHomePage(userData)
+            }
+        }
+
+        homeViewModel.userTodayIntake.observe(viewLifecycleOwner) { userTodayIntake ->
+            if (userTodayIntake != null) {
+                val healthStatus = userTodayIntake[0]
+                val feedback = userTodayIntake[1]
+                setupUserTodayIntake(healthStatus, feedback)
             }
         }
 
@@ -104,6 +113,15 @@ class HomeFragment : Fragment() {
             tvUserProteinNeed.text = (userData.proteinneed as Double).toString()
             if (userData.cardiovascular != null) {
                 tvUserCardiovascularRisk.text = userData.cardiovascular as String
+            }
+        }
+    }
+
+    private fun setupUserTodayIntake(healthStatus: String?, feedback: String?) {
+        if (healthStatus != null && feedback != null) {
+            binding.apply {
+                tvUserHealthStatus.text = healthStatus
+                tvFeedback.text = feedback
             }
         }
     }

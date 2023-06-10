@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nutriast.data.remote.api.ApiConfig
 import com.nutriast.data.remote.pojo.GetUserByUserIdResponse
+import com.nutriast.data.remote.pojo.GetUserTodayIntakeResponse
 import com.nutriast.data.remote.pojo.UserData
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,6 +15,9 @@ import retrofit2.Response
 class HomeViewModel : ViewModel() {
     private val _userData = MutableLiveData<UserData?>()
     val userData: LiveData<UserData?> = _userData
+
+    private val _userTodayIntake = MutableLiveData<List<String?>?>()
+    val userTodayIntake: LiveData<List<String?>?> = _userTodayIntake
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -64,8 +68,38 @@ class HomeViewModel : ViewModel() {
         })
     }
 
-    private fun getUserHealthStatus() {
-        // TODO: Fill this
+    fun getTodayIntakeInformation(authToken: String, userId: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService()
+            .getUserTodayIntake("Bearer $authToken", userId)
+        client.enqueue(object : Callback<GetUserTodayIntakeResponse> {
+            override fun onResponse(
+                call: Call<GetUserTodayIntakeResponse>,
+                response: Response<GetUserTodayIntakeResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    Log.d(TAG, "onResponse: $responseBody")
+                    if (responseBody != null) {
+                        if (responseBody.status == "success" && responseBody.data != null) {
+                            val healthStatus = responseBody.data.healthstatus
+                            val feedback = responseBody.data.feedback
+                            _userTodayIntake.value = listOf(healthStatus, feedback)
+                            Log.d(TAG, "onResponse: ${responseBody.message}")
+                        } else {
+                            Log.e(TAG, "onResponse: ${responseBody.message}")
+                        }
+                    }
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+                _isLoading.value = false
+            }
+            override fun onFailure(call: Call<GetUserTodayIntakeResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message}")
+                _isLoading.value = false
+            }
+        })
     }
 
     companion object {

@@ -2,6 +2,7 @@ package com.nutriast.data.remote.api
 
 import com.nutriast.data.remote.pojo.GetUserByUserIdResponse
 import com.nutriast.data.remote.pojo.GetUserIntakeHistoryResponse
+import com.nutriast.data.remote.pojo.GetUserTodayIntakeResponse
 import com.nutriast.data.remote.pojo.LoginResponse
 import com.nutriast.data.remote.pojo.PredictCardiovascularResponse
 import com.nutriast.data.remote.pojo.RegisterResponse
@@ -59,4 +60,10 @@ interface ApiService {
         @Header("Authorization") authToken: String,
         @Path("userId") userId: String
     ): Call<GetUserIntakeHistoryResponse>
+
+    @GET("intakeusers/{userId}")
+    fun getUserTodayIntake(
+        @Header("Authorization") authToken: String,
+        @Path("userId") userId: String
+    ): Call<GetUserTodayIntakeResponse>
 }
