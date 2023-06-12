@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Nutriast" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+<!--    <style name="Theme.Nutriast" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
+    <style name="Theme.Nutriast" parent="Theme.MaterialComponents.Light">
+    <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_nutriast</item>
         <item name="colorPrimaryVariant">@color/dark_green_nutriast</item>
         <item name="colorOnPrimary">@color/white</item>
