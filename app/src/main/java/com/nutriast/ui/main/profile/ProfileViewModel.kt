@@ -1,4 +1,4 @@
-package com.nutriast.ui.profile
+package com.nutriast.ui.main.profile
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -30,7 +30,7 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
         }
     }
 
-    fun getUserByUserId(authToken: String, userId: String) {
+    fun getUserPersonalInformation(authToken: String, userId: String) {
         _isLoading.value = true
         _apiResponse.value = ""
         val client = ApiConfig.getApiService().getUserByUserId("Bearer $authToken", userId)
@@ -48,7 +48,7 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
                             _userData.value = UserData(
                                 username = user.username,
                                 email = user.email,
-                                gender = "Male", // TODO: Change this to user.gender if BE service is ready
+                                gender = user.gender,
                                 age = user.age,
                                 weight = user.weight,
                                 height = user.height
@@ -56,8 +56,9 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
                             Log.d(TAG, "onResponse: ${responseBody.message}")
                         } else {
                             Log.e(TAG, "onResponse: ${responseBody.message}")
+                            _apiResponse.value = responseBody.message as String
                         }
-                        _apiResponse.value = responseBody.message as String
+//                        _apiResponse.value = responseBody.message as String
                     }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")

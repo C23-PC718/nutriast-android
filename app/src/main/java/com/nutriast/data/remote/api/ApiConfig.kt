@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfig {
     companion object {
         fun getApiService(): ApiService {
-            val backendUrl = "https://nutriastbackend-2qo27ggsha-et.a.run.app/" // TODO: change this variable
+            val backendUrl = "https://nutriastbackend-2qo27ggsha-et.a.run.app/"
             val loggingInterceptor = if(BuildConfig.DEBUG) {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             } else {

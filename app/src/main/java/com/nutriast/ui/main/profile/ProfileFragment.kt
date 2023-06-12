@@ -1,37 +1,44 @@
-package com.nutriast.ui.profile
+package com.nutriast.ui.main.profile
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.nutriast.data.local.UserPreference
 import com.nutriast.data.remote.pojo.UserData
-import com.nutriast.databinding.ActivityProfileBinding
+import com.nutriast.databinding.FragmentProfileBinding
 import com.nutriast.helper.ViewModelFactory
 import com.nutriast.ui.login.LoginActivity
+import com.nutriast.ui.main.MainActivity
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
-
-class ProfileActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityProfileBinding
+class ProfileFragment : Fragment() {
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
     private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var binding: FragmentProfileBinding
     private lateinit var authToken: String
     private lateinit var userId: String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
-        binding = ActivityProfileBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    @Deprecated("Deprecated in Java")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         getLoggedInUser()
         setupViewModel()
         setupAction()
@@ -39,45 +46,44 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun getLoggedInUser() {
-        authToken = intent.getStringExtra(EXTRA_AUTH_TOKEN).toString()
-        userId = intent.getStringExtra(EXTRA_USER_ID).toString()
-        val loggedInUser = listOf(authToken, userId)
+        val mainActivity = requireActivity() as MainActivity
+        val loggedInUser = mainActivity.getLoggedInUser()
+        authToken = loggedInUser[0]
+        userId = loggedInUser[1]
         Log.d(TAG, "getLoggedInUser: $loggedInUser")
     }
 
     private fun setupViewModel() {
         profileViewModel = ViewModelProvider(
             this,
-            ViewModelFactory(UserPreference.getInstance(dataStore))
+            ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
         )[ProfileViewModel::class.java]
     }
 
     private fun setupAction() {
         binding.logoutButton.setOnClickListener {
             profileViewModel.logout()
-            val i = Intent(this, LoginActivity::class.java)
+            val i = Intent(requireActivity(), LoginActivity::class.java)
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(i)
-            finish()
+            requireActivity().finish()
         }
     }
 
     private fun observeViewModel() {
-        if (userId.isNotEmpty()) {
-            profileViewModel.getUserByUserId(authToken, userId)
-        }
+        profileViewModel.getUserPersonalInformation(authToken, userId)
 
-        profileViewModel.userData.observe(this) { userData ->
+        profileViewModel.userData.observe(viewLifecycleOwner) { userData ->
             if (userData != null) {
                 setupProfilePage(userData)
             }
         }
 
-        profileViewModel.apiResponse.observe(this) { response ->
+        profileViewModel.apiResponse.observe(viewLifecycleOwner) { response ->
             if (response != "") { makeToast(response) }
         }
 
-        profileViewModel.isLoading.observe(this) { isLoading ->
+        profileViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             showLoading(isLoading)
         }
     }
@@ -95,7 +101,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun makeToast(text: String) {
-        Toast.makeText(this@ProfileActivity, text, Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -103,8 +109,6 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_AUTH_TOKEN = "extra_auth_token"
-        const val EXTRA_USER_ID = "extra_user_id"
-        private val TAG = ProfileActivity::class.java.simpleName
+        private val TAG = ProfileFragment::class.java.simpleName
     }
 }
