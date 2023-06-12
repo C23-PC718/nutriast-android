@@ -4,6 +4,7 @@ import com.nutriast.data.remote.pojo.GetUserByUserIdResponse
 import com.nutriast.data.remote.pojo.GetUserIntakeHistoryResponse
 import com.nutriast.data.remote.pojo.GetUserTodayIntakeResponse
 import com.nutriast.data.remote.pojo.LoginResponse
+import com.nutriast.data.remote.pojo.PostDailyIntakeResponse
 import com.nutriast.data.remote.pojo.PredictCardiovascularResponse
 import com.nutriast.data.remote.pojo.RegisterResponse
 import retrofit2.Call
@@ -65,4 +66,26 @@ interface ApiService {
         @Header("Authorization") authToken: String,
         @Path("userId") userId: String
     ): Call<GetUserTodayIntakeResponse>
+
+    @FormUrlEncoded
+    @POST("intakeusers/{userId}")
+    fun postDailyIntake(
+        @Header("Authorization") authToken: String,
+        @Path("userId") userId: String,
+        @Field("rice") rice: Double,
+        @Field("egg") egg: Double,
+        @Field("chicken") chicken: Double,
+        @Field("beef") beef: Double,
+        @Field("tofu") tofu: Double,
+        @Field("soybean_cake") soybeanCake: Double,
+        @Field("noodle") noodle: Double,
+        @Field("potato") potato: Double,
+        @Field("milk") milk: Double,
+        @Field("coffee") coffee: Double,
+        @Field("tea") tea: Double,
+        @Field("fish") fish: Double,
+        @Field("banana") banana: Double,
+        @Field("avocado") avocado: Double,
+        @Field("papaya") papaya: Double
+    ): Call<PostDailyIntakeResponse>
 }

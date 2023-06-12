@@ -71,4 +71,22 @@
     <string name="fiber">Fiber</string>
     <string name="carbohydrate">Carbohydrate</string>
     <string name="protein">Protein</string>
+    <string name="rice">Rice</string>
+    <string name="int_default_value_0">0</string>
+    <string name="egg">Egg</string>
+    <string name="chicken">Chicken</string>
+    <string name="beef">Beef</string>
+    <string name="tofu">Tofu</string>
+    <string name="soybean_cake">Soybean Cake</string>
+    <string name="noodle">Noodle</string>
+    <string name="potato">Potato</string>
+    <string name="milk">Milk</string>
+    <string name="coffee">Coffee</string>
+    <string name="tea">Tea</string>
+    <string name="fish">Fish</string>
+    <string name="banana">Banana</string>
+    <string name="avocado">Avocado</string>
+    <string name="papaya">Papaya</string>
+    <string name="submit">Submit</string>
+    <string name="daily_intake_form_note">Note: Fields input is counted per 1 gram.</string>
 </resources>
