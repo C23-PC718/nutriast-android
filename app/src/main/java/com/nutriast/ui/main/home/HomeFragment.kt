@@ -13,6 +13,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.nutriast.R
 import com.nutriast.data.local.UserPreference
 import com.nutriast.data.remote.pojo.UserData
 import com.nutriast.databinding.FragmentHomeBinding
@@ -113,6 +114,7 @@ class HomeFragment : Fragment() {
             tvUserProteinNeed.text = (userData.proteinneed as Double).toString()
             if (userData.cardiovascular != null) {
                 tvUserCardiovascularRisk.text = userData.cardiovascular as String
+                changeCardiovascularRiskColor(tvUserCardiovascularRisk.text as String)
             }
         }
     }
@@ -122,8 +124,30 @@ class HomeFragment : Fragment() {
             binding.apply {
                 tvUserHealthStatus.text = healthStatus
                 tvFeedback.text = feedback
+
+                changeHealthStatusColor(tvUserHealthStatus.text as String)
             }
         }
+    }
+
+    private fun changeHealthStatusColor(healthStatus: String) {
+        var color = resources.getColor(R.color.black)
+        if (healthStatus == "EXCELLENT") {
+            color = resources.getColor(R.color.dark_green_nutriast)
+        } else if (healthStatus == "POOR") {
+            color = resources.getColor(R.color.red_nutriast)
+        }
+        binding.tvUserHealthStatus.setTextColor(color)
+    }
+
+    private fun changeCardiovascularRiskColor(cardiovascularRisk: String) {
+        var color = resources.getColor(R.color.black)
+        if (cardiovascularRisk == "Safe") {
+            color = resources.getColor(R.color.dark_green_nutriast)
+        } else if (cardiovascularRisk == "Aware") {
+            color = resources.getColor(R.color.red_nutriast)
+        }
+        binding.tvUserCardiovascularRisk.setTextColor(color)
     }
 
     private fun makeToast(text: String) {

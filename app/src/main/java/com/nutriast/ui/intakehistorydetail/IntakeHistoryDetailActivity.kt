@@ -3,6 +3,7 @@ package com.nutriast.ui.intakehistorydetail
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.nutriast.R
 import com.nutriast.data.remote.pojo.IntakeData
 import com.nutriast.databinding.ActivityIntakeHistoryDetailBinding
 import java.text.SimpleDateFormat
@@ -45,6 +46,8 @@ class IntakeHistoryDetailActivity : AppCompatActivity() {
             tvUserFiberIntake.text = mIntakeData.fiberintake.toString()
             tvUserCarbohidrateIntake.text = mIntakeData.carbohidrateintake.toString()
             tvUserProteinIntake.text = mIntakeData.proteinintake.toString()
+
+            changeHealthStatusColor(tvUserIntakeHealthStatus.text as String)
         }
     }
 
@@ -62,6 +65,16 @@ class IntakeHistoryDetailActivity : AppCompatActivity() {
         } else {
             return "Date is missing"
         }
+    }
+
+    private fun changeHealthStatusColor(healthStatus: String) {
+        var color = resources.getColor(R.color.black)
+        if (healthStatus == "EXCELLENT") {
+            color = resources.getColor(R.color.dark_green_nutriast)
+        } else if (healthStatus == "POOR") {
+            color = resources.getColor(R.color.red_nutriast)
+        }
+        binding.tvUserIntakeHealthStatus.setTextColor(color)
     }
 
     companion object {
