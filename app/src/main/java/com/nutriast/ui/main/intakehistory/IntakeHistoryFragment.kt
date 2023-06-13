@@ -66,7 +66,7 @@ class IntakeHistoryFragment : Fragment() {
         intakeHistoryViewModel.getUserIntakeHistory(authToken, userId)
 
         intakeHistoryViewModel.listUserIntake.observe(viewLifecycleOwner) { listIntakeData ->
-            setListUserIntake(listIntakeData)
+            setupIntakeHistoryPage(listIntakeData)
         }
 
         intakeHistoryViewModel.apiResponse.observe(viewLifecycleOwner) { response ->
@@ -75,6 +75,24 @@ class IntakeHistoryFragment : Fragment() {
 
         intakeHistoryViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             showLoading(isLoading)
+        }
+    }
+
+    private fun setupIntakeHistoryPage(listIntakeData: List<IntakeData?>?) {
+        if (listIntakeData != null) {
+            if (listIntakeData.isEmpty()) {
+                showNoIntakeHistoryText()
+            } else {
+                setListUserIntake(listIntakeData)
+            }
+        }
+    }
+
+    private fun showNoIntakeHistoryText() {
+        binding.apply {
+            rvDailyIntakeHistory.visibility = View.GONE
+            bottomSpace.visibility = View.GONE
+            tvNoIntakeHistory.visibility = View.VISIBLE
         }
     }
 

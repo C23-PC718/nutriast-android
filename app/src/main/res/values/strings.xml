@@ -89,4 +89,5 @@
     <string name="papaya">Papaya</string>
     <string name="submit">Submit</string>
     <string name="daily_intake_form_note">Note: Fields input is counted per 1 gram.</string>
+    <string name="you_have_no_intake_history">You have no Intake history</string>
 </resources>
