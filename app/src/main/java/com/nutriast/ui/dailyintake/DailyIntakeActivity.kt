@@ -56,27 +56,27 @@ class DailyIntakeActivity : AppCompatActivity() {
             val egg = binding.etEgg.text.toString().toDouble()
             val chicken = binding.etChicken.text.toString().toDouble()
             val beef = binding.etBeef.text.toString().toDouble()
+            val fish = binding.etFish.text.toString().toDouble()
             val tofu = binding.etTofu.text.toString().toDouble()
             val soybeanCake = binding.etSoybeanCake.text.toString().toDouble()
             val noodle = binding.etNoodle.text.toString().toDouble()
             val potato = binding.etPotato.text.toString().toDouble()
             val milk = binding.etMilk.text.toString().toDouble()
-            val coffee = binding.etCoffee.text.toString().toDouble()
-            val tea = binding.etTea.text.toString().toDouble()
-            val fish = binding.etFish.text.toString().toDouble()
+            val apple = binding.etApple.text.toString().toDouble()
+            val watermelon = binding.etWatermelon.text.toString().toDouble()
             val banana = binding.etBanana.text.toString().toDouble()
             val avocado = binding.etAvocado.text.toString().toDouble()
             val papaya = binding.etPapaya.text.toString().toDouble()
 
             val userTodayIntake = listOf(
-                rice, egg, chicken, beef, tofu, soybeanCake, noodle, potato,
-                milk, coffee, tea, fish, banana, avocado, papaya
+                rice, egg, chicken, beef, fish, tofu, soybeanCake, noodle, potato,
+                milk, apple, watermelon, banana, avocado, papaya
             )
             Log.d(TAG, "setupAction userTodayIntake: $userTodayIntake")
 
             dailyIntakeViewModel.postDailyIntake(
-                authToken, userId, rice, egg, chicken, beef, tofu, soybeanCake,
-                noodle, potato, milk, coffee, tea, fish, banana, avocado, papaya
+                authToken, userId, rice, egg, chicken, beef, fish, tofu, soybeanCake,
+                noodle, potato, milk, apple, watermelon, banana, avocado, papaya
             )
         }
 

@@ -22,15 +22,15 @@ class DailyIntakeViewModel : ViewModel() {
 
     fun postDailyIntake(
         authToken: String, userId: String, rice: Double, egg: Double, chicken: Double, beef: Double,
-        tofu: Double, soybeanCake: Double, noodle: Double, potato: Double, milk: Double,
-        coffee: Double, tea: Double, fish: Double, banana: Double, avocado: Double, papaya: Double
+        fish: Double, tofu: Double, soybeanCake: Double, noodle: Double, potato: Double, milk: Double,
+        apple: Double, watermelon: Double, banana: Double, avocado: Double, papaya: Double
     ) {
         _isLoading.value = true
         _postSuccessful.value = false
         _apiResponse.value = ""
         val client = ApiConfig.getApiService().postDailyIntake(
-            "Bearer $authToken", userId, rice, egg, chicken, beef, tofu, soybeanCake,
-            noodle, potato, milk, coffee, tea, fish, banana, avocado, papaya
+            "Bearer $authToken", userId, rice, egg, chicken, beef, fish, tofu,
+            soybeanCake, noodle, potato, milk, apple, watermelon, banana, avocado, papaya
         )
         client.enqueue(object : Callback<PostDailyIntakeResponse> {
             override fun onResponse(

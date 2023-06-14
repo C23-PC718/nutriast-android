@@ -168,6 +168,38 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tvFish"
+            style="@style/Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/fish"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etBeefLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etFishLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFish"
+            app:layout_constraintWidth_percent="0.25">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFish"
+                style="@style/Normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/int_default_value_0"
+                android:inputType="numberDecimal"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
             android:id="@+id/tvTofu"
             style="@style/Normal"
             android:layout_width="wrap_content"
@@ -176,7 +208,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/tofu"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etBeefLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/etFishLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etTofuLayout"
@@ -328,28 +360,28 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/tvCoffee"
+            android:id="@+id/tvApple"
             style="@style/Normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="@string/coffee"
+            android:text="@string/apple"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etMilkLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etCoffeeLayout"
+            android:id="@+id/etAppleLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCoffee"
+            app:layout_constraintTop_toBottomOf="@+id/tvApple"
             app:layout_constraintWidth_percent="0.25">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCoffee"
+                android:id="@+id/etApple"
                 style="@style/Normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -360,60 +392,28 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/tvTea"
+            android:id="@+id/tvWatermelon"
             style="@style/Normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="@string/tea"
+            android:text="@string/watermelon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etCoffeeLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/etAppleLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etTeaLayout"
+            android:id="@+id/etWatermelonLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTea"
+            app:layout_constraintTop_toBottomOf="@+id/tvWatermelon"
             app:layout_constraintWidth_percent="0.25">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTea"
-                style="@style/Normal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:text="@string/int_default_value_0"
-                android:inputType="numberDecimal"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/tvFish"
-            style="@style/Normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/fish"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etTeaLayout" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etFishLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFish"
-            app:layout_constraintWidth_percent="0.25">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFish"
+                android:id="@+id/etWatermelon"
                 style="@style/Normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -432,7 +432,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/banana"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etFishLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/etWatermelonLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etBananaLayout"

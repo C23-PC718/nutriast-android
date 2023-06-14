@@ -46,7 +46,12 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
-            loginViewModel.login(email, password)
+
+            if (email != "" && password != "") {
+                loginViewModel.login(email, password)
+            } else {
+                makeToast("Please fill all fields")
+            }
         }
 
         binding.tvRegisterNow.setOnClickListener {

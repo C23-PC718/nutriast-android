@@ -47,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             val username = binding.etName.text.toString()
-            val birthdate = changeBirthDateFormat(binding.etDateOfBirth.text.toString())
+            val birthdate = binding.etDateOfBirth.text.toString()
             val gender = getGender()
             val height = binding.etHeight.text.toString().toInt()
             val weight = binding.etWeight.text.toString().toInt()
@@ -55,7 +55,16 @@ class RegisterActivity : AppCompatActivity() {
             val newUserData = listOf(email, password, username, birthdate, gender, height, weight)
             Log.d(TAG, "setupAction newUserData: $newUserData")
 
-            registerViewModel.register(email, password, username, birthdate, gender, height, weight)
+            if (
+                email != "" && password != "" && username != "" && birthdate != "" && gender != null
+            ) {
+                val birthdateFormatted = changeBirthDateFormat(birthdate)
+                registerViewModel.register(
+                    email, password, username, birthdateFormatted, gender, height, weight
+                )
+            } else {
+                makeToast("Please fill all fields")
+            }
         }
     }
 
@@ -92,13 +101,13 @@ class RegisterActivity : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    private fun getGender(): String {
+    private fun getGender(): String? {
         val selectedRbGender = when (binding.rgGender.checkedRadioButtonId) {
-            binding.radioButtonMale.id -> binding.radioButtonMale
-            binding.radioButtonFemale.id -> binding.radioButtonFemale
+            binding.radioButtonMale.id -> "male"
+            binding.radioButtonFemale.id -> "female"
             else -> null
         }
-        return selectedRbGender?.text.toString().lowercase()
+        return selectedRbGender
     }
 
     private fun changeBirthDateFormat(birthdate: String): String {

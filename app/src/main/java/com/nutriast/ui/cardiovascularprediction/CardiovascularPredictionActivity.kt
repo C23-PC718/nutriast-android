@@ -74,6 +74,8 @@ class CardiovascularPredictionActivity : AppCompatActivity() {
                     authToken, userId, apHi, apLo, cholesterolLevel,
                     glucoseLevel, isSmoke, isAlcohol, isActive
                 )
+            } else {
+                makeToast("Please fill all fields")
             }
         }
 

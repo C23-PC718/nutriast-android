@@ -39,7 +39,7 @@ class RegisterViewModel : ViewModel() {
                     val responseBody = response.body()
                     Log.d(TAG, "onResponse: $responseBody")
                     if (responseBody != null) {
-                        if (responseBody.status == true) {
+                        if (responseBody.status == "success") {
                             _registerSuccessful.value = true
                             Log.d(TAG, "onResponse: ${responseBody.message}")
                         } else {
