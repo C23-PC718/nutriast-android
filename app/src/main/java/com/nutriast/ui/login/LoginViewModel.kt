@@ -53,7 +53,7 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
                     val responseBody = response.body()
                     Log.d(TAG, "onResponse: $responseBody")
                     if (responseBody != null) {
-                        if (responseBody.status == true) {
+                        if (responseBody.status == "success") {
                             val loginData = responseBody.data
                             val userId = loginData?.userId
                             val token = loginData?.authenticationToken

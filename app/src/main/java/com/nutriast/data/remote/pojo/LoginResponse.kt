@@ -16,7 +16,7 @@ data class LoginResponse(
 	val message: String? = null,
 
 	@field:SerializedName("status")
-	val status: Boolean? = null
+	val status: String? = null
 )
 
 @Parcelize
