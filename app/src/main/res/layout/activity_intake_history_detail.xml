@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.intakehistorydetail.IntakeHistoryDetailActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <TextView
+            android:id="@+id/tvDailyIntakeHistoryDetailTitle"
+            style="@style/Heading1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/intake_history_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvIntakeDate"
+            style="@style/Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/date_format"
+            android:textStyle="italic"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDailyIntakeHistoryDetailTitle" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvIntakeHealthStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIntakeDate">
+
+            <LinearLayout
+                android:id="@+id/linLayoutIntakeHealthStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvIntakeHealthStatus"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/health_status"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvUserIntakeHealthStatus"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_health_status"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvIntakeFeedback"
+            style="@style/Normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="@string/feedback_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvIntakeHealthStatus" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvNutritionIntakeDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIntakeFeedback">
+
+            <LinearLayout
+                android:id="@+id/linLayoutNutritionIntakeDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNutritionIntakeDetail"
+                    style="@style/Heading1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nutrition_intake_detail"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/linLayoutFatIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvFatIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/fat"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserFatIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutCaloryIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvCaloryIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/calorie"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserCaloryIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutFiberIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvFiberIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/fiber"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserFiberIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutCarbohidrateIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvCarbohidrateIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/carbohydrate"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserCarbohidrateIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linLayoutProteinIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tvProteinIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/protein"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvUserProteinIntake"
+                        style="@style/Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/triple_dots"
+                        android:textStyle="bold"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

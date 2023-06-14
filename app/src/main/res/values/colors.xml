@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_gray">#1E232C</color>
+    <color name="blue_hyperlink">#35C2C1</color>
+    <color name="navy_blue">#000080</color>
+    <color name="green_nutriast">#49BC86</color>
+    <color name="dark_green_nutriast">#1B8553</color>
+    <color name="light_gray">#DADADA</color>
+    <color name="lightest_gray">#EDEDED</color>
+    <color name="red_nutriast">#C54545</color>
 </resources>
