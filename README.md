@@ -33,12 +33,29 @@ Click [here](https://drive.google.com/file/d/1rM5bN0cKS3Us0hZ_pkI7Y_1EF-Ka6WO7/v
 ### Predict Cardiovascular Risk
 - You must login first to access Predict Cardiovascular Risk page
 - In Home page, there is information about your Cardiovascular Risk. 
-The Cardiovascular Risk status divided into three: Aware, UNKNOWN, Safe.
-You will have UNKNOWN Cardiovascular Risk status if you haven't predicted before.
-- Click "Predict Cardiovascular" button in Home page to predict your Cardiovascular Risk
+The Cardiovascular Risk status is divided into three categories: Aware, UNKNOWN, Safe.
+You will have UNKNOWN Cardiovascular Risk status if you haven't predicted before
+- Click "Predict Cardiovascular Risk" button in Home page to predict your Cardiovascular Risk
 - After you are redirected to Predict Cardiovascular Risk page, fill all fields in the form, then press "Predict" button to do the prediction
 - If predict is successful, you will be redirected to Home page and prediction result will be shown in Cardiovascular Risk card
 - If you press "Predict" button before filling all fields, application will show a message "Please fill all fields"
+
+### Checkout Daily Nutrition Intake
+- You must login first to access Checkout Daily Nutrition Intake page
+- In Home page, there are information about your Today Health Status and feedback.
+Today Health Status is divided into three categories: POOR, UNKNOWN, EXCELLENT.
+You will have UNKNOWN Today Health Status if you haven't checked out today nutrition intake
+- Click "Checkout Today" button in Home page to checkout your today nutrition intake
+- After you are redirected to Daily Nutrition Intake, there will be a form. Fill all form fields, then click "Submit" button to checkout today nutrition intake
+- If checkout is successful, you will be redirected to Home page. Today Health Status and feedback result will be shown in top of Home page.
+- If you press "Submit" button before filling all fields, application will show a message "Please fill all fields"
+
+### Intake History
+- You must login first to access Intake History and Intake History Detail page
+- After login, click "Intake History" on bottom navigation bar.
+- If you do not have Intake History record, the application will show "You have no Intake history"
+- If you have Intake History record, the application will show a list of your Intake History
+- You can click the list item to see more detail about the history of that time
 
 ### Notes
 - All features in Nutriast application required internet
